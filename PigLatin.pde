@@ -26,19 +26,22 @@ public int findFirstVowel(String sWord)
 }
 
 public String pigLatin(String sWord)
-//precondition: sWord is a valid String of length greater than 0
-//postcondition: returns the pig latin equivalent of sWord
 {
+	String pig = new String();
 	if(findFirstVowel(sWord) == -1)
 	{
 		return sWord + "ay";
 	}
-	else if(findFirstVowel(sWord) == 0)
+	if(findFirstVowel(sWord) == 0)
 	{
 		return sWord + "way";
 	}
-	else if(sWord.charAt(0) == 'q' && sWord.charAt(1) == 'u')
+	if(sWord.charAt(0) == 'q' && sWord.charAt(1) == 'u')
 	{
 		return sWord.substring(2,sWord.length()) + "qu" + "ay";
+	}
+	if(findFirstVowel(sWord.substring(0)) == -1)
+	{
+		return sWord.substring(1,sWord.length()) + sWord.substring(0) + "ay";
 	}
 }
